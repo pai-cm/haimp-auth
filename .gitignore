@@ -246,7 +246,7 @@ celerybeat.pid
 
 # Environments
 .env
-.venv
+auth-system/.venv
 env/
 venv/
 ENV/
