@@ -19,3 +19,11 @@ class AlreadyExistsException(DatabaseException):
 
 class DBIntegrityException(DatabaseException):
     """무결성 에러"""
+
+
+class InvalidTokenException(HaimpAuthException):
+    """잘못된 토큰일 때"""
+
+
+class ExpiredTokenException(InvalidTokenException):
+    """만료된 토큰일 때"""

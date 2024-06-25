@@ -5,6 +5,7 @@ import os
 
 from src.abstracts.database.base import SessionManager
 from src.settings import Settings
+from src.tokens.manager import TokenManager
 
 
 @pytest.fixture
@@ -59,3 +60,8 @@ def given_public_pem_file(given_public_key):
         f.write(given_public_key.export_key())
     yield fpath
     os.remove(fpath)
+
+
+@pytest.fixture
+def given_token_manager(given_auth_settings) -> TokenManager:
+    return TokenManager(given_auth_settings)
