@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "auth-system"
+version = "0.1.0"
+description = "haimp auth 계정관리시스템"
+authors = ["pai-cm <cmkim@publicai.co.kr>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
