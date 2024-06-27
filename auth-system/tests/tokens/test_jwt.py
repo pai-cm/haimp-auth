@@ -11,7 +11,7 @@ from jwt.exceptions import ExpiredSignatureError, InvalidAudienceError
 def test_jwt_encode_and_decode(given_private_pem_file):
     given_payload = {
         "username": "pai-cm",
-        "usergroup": "haimp-developer",
+        "usergroup": "paip-developer",
         "role": "admin",
     }
 
@@ -33,7 +33,7 @@ def test_jwt_encode_and_decode(given_private_pem_file):
 def test_verify_using_jwt(given_private_pem_file, given_public_pem_file):
     given_payload = {
         "username": "pai-cm",
-        "usergroup": "haimp-developer",
+        "usergroup": "paip-developer",
         "role": "admin",
     }
 
@@ -50,7 +50,7 @@ def test_spec_exp_jwt_normal_case(given_private_pem_file, given_public_pem_file)
     given_payload = {
         "exp": datetime.now().timestamp() + 10,
         "username": "pai-cm",
-        "usergroup": "haimp-developer",
+        "usergroup": "paip-developer",
         "role": "admin",
     }
 
@@ -67,7 +67,7 @@ def test_spec_exp_jwt_expired_case(given_private_pem_file, given_public_pem_file
     given_payload = {
         "exp": datetime.now().timestamp() - 10,
         "username": "pai-cm",
-        "usergroup": "haimp-developer",
+        "usergroup": "paip-developer",
         "role": "admin",
     }
 
@@ -87,7 +87,7 @@ def test_skip_verify_decode(given_private_pem_file, given_public_pem_file):
     given_payload = {
         "exp": datetime.now().timestamp() - 10,
         "username": "pai-cm",
-        "usergroup": "haimp-developer",
+        "usergroup": "paip-developer",
         "role": "admin",
     }
 
@@ -107,7 +107,7 @@ def test_spec_leeway(given_private_pem_file, given_public_pem_file):
     given_payload = {
         "exp": datetime.now().timestamp() - 3,
         "username": "pai-cm",
-        "usergroup": "haimp-developer",
+        "usergroup": "paip-developer",
         "role": "admin",
     }
 
@@ -130,9 +130,9 @@ def test_spec_audience(given_private_pem_file, given_public_pem_file):
     하나의 auth 서버에서 aud 를 쓰면 된다
     """
     given_payload = {
-        "aud": "haimp-api-gateway",
+        "aud": "paip-api-gateway",
         "username": "pai-cm",
-        "usergroup": "haimp-developer",
+        "usergroup": "paip-developer",
         "role": "admin",
     }
 
@@ -141,7 +141,7 @@ def test_spec_audience(given_private_pem_file, given_public_pem_file):
     jwt_token = jwt.encode(given_payload, private_pem, algorithm='RS256')
 
     # api gateway 에서 사용할 것
-    output = jwt.decode(jwt_token, public_pem, algorithms=['RS256'], audience='haimp-api-gateway')
+    output = jwt.decode(jwt_token, public_pem, algorithms=['RS256'], audience='paip-api-gateway')
     # output = jwt.decode(jwt_token, public_pem, algorithms=['RS256'], options={
     #     "verify_aud": False,
     # })

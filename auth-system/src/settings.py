@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     )
 
     db_name: str = Field(
-        default="haimp-auth",
+        default="paip-auth",
         description="디비 스키마 이름"
     )
 

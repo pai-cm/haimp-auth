@@ -14,7 +14,7 @@ def given_user():
         account_id="paicm",
         name="김채민",
         role=UserRole.ADMIN,
-        group="haimp",
+        group="paip",
         email="pai-cm@publicai.co.kr",
         phone="010-1234-1234",
         signup_at=datetime.now()
@@ -26,7 +26,7 @@ def test_create_jwt_token_access(given_private_pem, given_public_pem):
     given_payload = {
         "account_id": "paicm",
         "user_role": "admin",
-        "user_group": "haimp"
+        "user_group": "paip"
     }
 
     # when
@@ -44,7 +44,7 @@ def test_create_jwt_token_expired_case(given_private_pem, given_public_pem):
     given_payload = {
         "account_id": "paicm",
         "user_role": "admin",
-        "user_group": "haimp"
+        "user_group": "paip"
     }
 
     # when

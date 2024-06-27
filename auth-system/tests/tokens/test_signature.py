@@ -17,7 +17,7 @@ from src.tokens.signature import sign_data_by_rsa, verify_data_by_rsa
 def test_generate_signature_and_verify(given_private_pem_file, given_public_pem_file):
     given_payload = {
         "username": "pai-cm",
-        "usergroup": "haimp-developer",
+        "usergroup": "paip-developer",
         "role": "admin",
     }
     given_message = json.dumps(given_payload).encode("utf-8")
@@ -33,7 +33,7 @@ def test_generate_signature_and_verify(given_private_pem_file, given_public_pem_
 def test_scenario1_client_is_thief(given_private_pem_file, given_public_pem_file):
     given_payload = {
         "username": "pai-cm",
-        "usergroup": "haimp-developer",
+        "usergroup": "paip-developer",
         "role": "admin",
     }
     given_message = json.dumps(given_payload).encode("utf-8")
@@ -48,7 +48,7 @@ def test_scenario1_client_is_thief(given_private_pem_file, given_public_pem_file
 def test_scenario2_client_is_thief(given_private_pem_file, given_public_pem_file):
     given_payload = {
         "username": "pai-cm",
-        "usergroup": "haimp-developer",
+        "usergroup": "paip-developer",
         "role": "admin",
     }
     given_message = json.dumps(given_payload).encode("utf-8")

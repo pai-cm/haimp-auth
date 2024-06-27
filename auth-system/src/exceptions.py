@@ -1,11 +1,11 @@
-class HaimpAuthException(Exception):
+class PaipAuthException(Exception):
     message: str
 
     def __init__(self, message: str):
         self.message = message
 
 
-class DatabaseException(HaimpAuthException):
+class DatabaseException(PaipAuthException):
     """데이터 베이스에서 발생한 Exception"""
 
 
@@ -21,7 +21,7 @@ class DBIntegrityException(DatabaseException):
     """무결성 에러"""
 
 
-class InvalidTokenException(HaimpAuthException):
+class InvalidTokenException(PaipAuthException):
     """잘못된 토큰일 때"""
 
 
