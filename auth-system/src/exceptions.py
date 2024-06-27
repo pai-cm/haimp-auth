@@ -17,6 +17,10 @@ class AlreadyExistsException(DatabaseException):
     """이미 데이터가 존재할 때"""
 
 
+class UnAuthorizedException(DatabaseException):
+    """인증되지 않은 사용자일 때"""
+
+
 class DBIntegrityException(DatabaseException):
     """무결성 에러"""
 
